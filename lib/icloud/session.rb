@@ -4,7 +4,7 @@
 require "cgi"
 require "uri"
 require "net/https"
-require "json/pure"
+require "json"
 
 module ICloud
   class Session
