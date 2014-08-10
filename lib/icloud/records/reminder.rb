@@ -37,6 +37,24 @@ module ICloud
         !! completed_date
       end
 
+      # Complete task locally (do not update iCloud).
+      # With no argument, assumes that local system time zone matches usertz,
+      # which may well not be true. If it isn't, provide Time in usertz.
+      # Modified date doesn't change when a task is completed.
+      # The last element is a sequence number of some kind. I'm not sure what 
+      # it does, if anything.
+      def complete(as_of = Time.now)
+        @completed_date = [ 
+          as_of.strftime("%Y%m%d"),
+          as_of.year,
+          as_of.month,
+          as_of.day,
+          as_of.hour,
+          as_of.min,
+          1
+        ]
+      end
+
       # When alarms are added to this reminder, wrap them in Alarm objects.
       # TODO: Replace this with a cast method.
       def alarms=(alarms)
