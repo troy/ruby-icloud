@@ -12,4 +12,12 @@ class TestReminder < MiniTest::Unit::TestCase
     refute incomplete.complete?
     assert complete.complete?
   end
+
+  def test_complete
+    incomplete = @cls.new
+    assert_nil complete.completed_date
+    incomplete.complete
+    assert complete.completed_date.is_a?(Array)
+    assert_equal 7, complete.completed_date.length
+  end
 end

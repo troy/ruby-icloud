@@ -41,11 +41,11 @@ module ICloud
       # With no argument, assumes that local system time zone matches usertz,
       # which may well not be true. If it isn't, provide Time in usertz.
       # Modified date doesn't change when a task is completed.
-      # The last element is a sequence number of some kind. I'm not sure what 
-      # it does, if anything.
+      # In iCloud, the last element is a sequence number of some kind but
+      # appears to have no impact when set to 1.
       def complete(as_of = Time.now)
         @completed_date = [ 
-          as_of.strftime("%Y%m%d"),
+          as_of.strftime("%Y%m%d").to_i,
           as_of.year,
           as_of.month,
           as_of.day,
