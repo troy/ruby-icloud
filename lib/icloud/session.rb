@@ -131,8 +131,8 @@ module ICloud
         :status      => 'ACCEPTED',
         :guid        => pending_invitation['guid'],
         :inviteToken => pending_invitation['inviteToken'],
-        :shareTitle  => pending_invitations['shareTitle'],
-        :shareURL    => pending_invitations['shareURL'],
+        :shareTitle  => pending_invitation['shareTitle'],
+        :shareURL    => pending_invitation['shareURL'],
         "ClientState" => client_state
       })
     end
