@@ -220,6 +220,7 @@ module ICloud
       @http["#{host}:#{port}"] ||= http_class.new(host, port).tap do |http|
         http.verify_mode = OpenSSL::SSL::VERIFY_PEER
         http.use_ssl = true
+        http.read_timeout = 180
       end
     end
 
